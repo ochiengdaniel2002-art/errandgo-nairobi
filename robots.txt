@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-GITHUB-PAGES-URL/sitemap.xml
+Sitemap: https://ochiengdaniel2002-art.github.io/errandgo-nairobi/sitemap.xml
