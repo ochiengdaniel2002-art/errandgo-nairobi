@@ -1,0 +1,12 @@
+{
+  "name": "ErrandGo Nairobi",
+  "short_name": "ErrandGo",
+  "description": "Errand and delivery services across Nairobi and nearby areas in Kenya.",
+  "start_url": "/errandgo-nairobi/",
+  "scope": "/errandgo-nairobi/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en-KE",
+  "dir": "ltr"
+}
