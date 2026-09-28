@@ -2540,3 +2540,137 @@ footer {
         display: none;
     }
 }
+/* =========================================================
+   PROFESSIONAL BOOKING FORM ENHANCEMENTS
+========================================================= */
+
+.request-section {
+    padding: 100px 0 80px;
+}
+
+.request-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.request-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+}
+
+/* Optional text */
+.optional {
+    color: var(--color-text-muted) !important;
+    font-weight: 400;
+}
+
+.booking-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+.booking-checkbox:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+.booking-checkbox input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.request-help {
+    background: var(--color-primary-light);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    border-radius: var(--radius-lg);
+}
+
+.request-help strong {
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+}
+
+.request-help p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.help-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    background: var(--color-primary);
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.help-button:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+/* Better date/time appearance */
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    min-height: 48px;
+    cursor: pointer;
+}
+
+/* Validation */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group select:invalid,
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--color-border);
+}
+
+.form-group input:focus:invalid,
+.form-group select:focus:invalid,
+.form-group textarea:focus:invalid {
+    border-color: var(--color-primary);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .request-section {
+        padding: 90px 0 60px;
+    }
+
+    .request-container {
+        padding: 0 16px;
+    }
+
+    .request-card {
+        border-radius: var(--radius-lg);
+    }
+
+    .booking-checkbox {
+        font-size: 0.8125rem;
+    }
+}
