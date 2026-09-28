@@ -121,101 +121,287 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    /* =====================================================
-       REQUEST FORM
-    ===================================================== */
+   /* =====================================================
+   REQUEST / BOOKING FORM
+===================================================== */
 
-    const errandForm = document.getElementById("errandForm");
+const errandForm = document.getElementById("errandRequestForm");
 
-    if (errandForm) {
+if (errandForm) {
 
-        const dateInput = document.getElementById("preferredDate");
-        if (dateInput) {
-            const today = new Date().toISOString().split("T")[0];
-            dateInput.setAttribute("min", today);
+    const serviceSelect = document.getElementById("service");
+    const dateInput = document.getElementById("preferredDate");
+
+    /* =================================================
+       SET MINIMUM DATE TO TODAY
+    ================================================= */
+
+    if (dateInput) {
+        const today = new Date();
+
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+        const day = String(today.getDate()).padStart(2, "0");
+
+        dateInput.min = `${year}-${month}-${day}`;
+    }
+
+    /* =================================================
+       SERVICE QUERY PARAMETERS
+       Example:
+       request.html?service=shopping
+    ================================================= */
+
+    if (serviceSelect) {
+
+        const urlParams =
+            new URLSearchParams(window.location.search);
+
+        const selectedService =
+            urlParams.get("service");
+
+        const serviceMap = {
+            shopping: "Shopping & Grocery Runs",
+            delivery: "Pickups & Deliveries",
+            personal: "Personal Errands",
+            document: "Document Runs",
+            business: "Business Errands"
+        };
+
+        if (
+            selectedService &&
+            serviceMap[selectedService]
+        ) {
+            serviceSelect.value =
+                serviceMap[selectedService];
+        }
+    }
+
+    /* =================================================
+       FORM SUBMISSION
+    ================================================= */
+
+    errandForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const fullName =
+            document.getElementById("fullName")?.value.trim() || "";
+
+        const phone =
+            document.getElementById("phone")?.value.trim() || "";
+
+        const email =
+            document.getElementById("email")?.value.trim() || "";
+
+        const selectedService =
+            document.getElementById("service")?.value || "";
+
+        const pickup =
+            document.getElementById("pickupLocation")?.value.trim() || "";
+
+        const destination =
+            document.getElementById("destination")?.value.trim() || "";
+
+        const locationDetails =
+            document.getElementById("locationDetails")?.value.trim() || "";
+
+        const preferredDate =
+            document.getElementById("preferredDate")?.value || "";
+
+        const preferredTime =
+            document.getElementById("preferredTime")?.value || "";
+
+        const description =
+            document.getElementById("description")?.value.trim() || "";
+
+        const budget =
+            document.getElementById("budget")?.value || "";
+
+        const urgency =
+            document.getElementById("urgency")?.value || "";
+
+        const instructions =
+            document.getElementById("instructions")?.value.trim() || "";
+
+        if (
+            !fullName ||
+            !phone ||
+            !selectedService ||
+            !pickup ||
+            !preferredDate ||
+            !preferredTime ||
+            !description
+        ) {
+            alert("Please complete all required fields.");
+            return;
         }
 
-        errandForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+        /* =================================================
+           PHONE VALIDATION
+        ================================================= */
 
-            const nameInput = document.getElementById("customerName");
-            const phoneInput = document.getElementById("customerPhone");
-            const serviceInput = document.getElementById("serviceType");
-            const pickupInput = document.getElementById("pickupLocation");
-            const destinationInput = document.getElementById("destination");
-            const timeInput = document.getElementById("preferredTime");
-            const detailsInput = document.getElementById("errandDetails");
-            const budgetInput = document.getElementById("budget");
+        const cleanPhone =
+            phone.replace(/[\s\-()]/g, "");
 
-            const name = nameInput ? nameInput.value.trim() : "";
-            const phone = phoneInput ? phoneInput.value.trim() : "";
-            const service = serviceInput ? serviceInput.value.trim() : "";
-            const pickup = pickupInput ? pickupInput.value.trim() : "";
-            const destination = destinationInput ? destinationInput.value.trim() : "";
-            const date = dateInput ? dateInput.value : "";
-            const time = timeInput ? timeInput.value : "";
-            const details = detailsInput ? detailsInput.value.trim() : "";
-            const budget = budgetInput ? budgetInput.value.trim() : "";
+        const phonePattern =
+            /^\+?[0-9]{9,15}$/;
 
-            if (!name || !phone || !service || !pickup || !date || !time || !details) {
-                alert("Please fill in all required fields.");
-                return;
-            }
+        if (!phonePattern.test(cleanPhone)) {
+            alert("Please enter a valid phone number.");
+            document.getElementById("phone")?.focus();
+            return;
+        }
 
-            const cleanPhone = phone.replace(/[\s\-()]/g, "");
-            const phonePattern = /^\+?[0-9]{9,15}$/;
-            if (!phonePattern.test(cleanPhone)) {
-                alert("Please enter a valid phone number.");
-                if (phoneInput) phoneInput.focus();
-                return;
-            }
+        /* =================================================
+           DATE VALIDATION
+        ================================================= */
 
-            const selectedDate = new Date(date + "T00:00:00");
-            const todayDate = new Date();
-            todayDate.setHours(0, 0, 0, 0);
-            if (selectedDate < todayDate) {
-                alert("Please select today or a future date.");
-                if (dateInput) dateInput.focus();
-                return;
-            }
+        const selectedDate =
+            new Date(preferredDate + "T00:00:00");
 
-            const formattedDate = selectedDate.toLocaleDateString("en-KE", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-            });
+        const todayDate = new Date();
+        todayDate.setHours(0, 0, 0, 0);
 
-            const formattedTime = new Date("1970-01-01T" + time).toLocaleTimeString("en-KE", {
-                hour: "numeric",
-                minute: "2-digit"
-            });
+        if (selectedDate < todayDate) {
+            alert("Please select today or a future date.");
+            dateInput?.focus();
+            return;
+        }
 
-            const destinationText = destination || "Not applicable / Same location";
-            const budgetText = budget
-                ? "KES " + Number(budget).toLocaleString("en-KE")
-                : "Not specified";
+        /* =================================================
+           FORMAT DATE
+        ================================================= */
 
-            const message =
-                "*NEW ERRAND REQUEST*\n\n" +
-                "\uD83D\uDC64 *Customer:* " + name + "\n\n" +
-                "\uD83D\uDCDE *Phone:* " + phone + "\n\n" +
-                "\uD83D\uDEF5 *Service:* " + service + "\n\n" +
-                "\uD83D\uDCCD *Pickup Location:* " + pickup + "\n\n" +
-                "\uD83D\uDCCD *Destination:* " + destinationText + "\n\n" +
-                "\uD83D\uDCC5 *Preferred Date:* " + formattedDate + "\n\n" +
-                "\uD83D\uDD50 *Preferred Time:* " + formattedTime + "\n\n" +
-                "\uD83D\uDCDD *Errand Details:*\n" + details + "\n\n" +
-                "\uD83D\uDCB0 *Estimated Budget:* " + budgetText + "\n\n" +
-                "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\n" +
-                "*" + ERRANDGO_CONFIG.businessName + "*\n" +
-                "_" + ERRANDGO_CONFIG.tagline + "_\n\n" +
-                "Sent via " + ERRANDGO_CONFIG.businessName + " Website";
+        const formattedDate =
+            selectedDate.toLocaleDateString(
+                "en-KE",
+                {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
 
-            const whatsappURL = "https://wa.me/" + ERRANDGO_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(message);
-            window.open(whatsappURL, "_blank", "noopener,noreferrer");
-        });
-    }
+        /* =================================================
+           FORMAT TIME
+        ================================================= */
+
+        let formattedTime = preferredTime;
+
+        if (preferredTime) {
+            const timeDate =
+                new Date("1970-01-01T" + preferredTime);
+
+            formattedTime =
+                timeDate.toLocaleTimeString(
+                    "en-KE",
+                    {
+                        hour: "numeric",
+                        minute: "2-digit"
+                    }
+                );
+        }
+
+        /* =================================================
+           WHATSAPP MESSAGE
+        ================================================= */
+
+        const message =
+`Hello ErrandGo! 👋
+
+I'd like to make an errand request.
+
+━━━━━━━━━━━━━━━━━━
+📋 REQUEST DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Service:
+${selectedService}
+
+Priority:
+${urgency || "Standard"}
+
+Preferred Date:
+${formattedDate}
+
+Preferred Time:
+${formattedTime}
+
+━━━━━━━━━━━━━━━━━━
+👤 CUSTOMER DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Name:
+${fullName}
+
+Phone:
+${phone}
+
+Email:
+${email || "Not provided"}
+
+━━━━━━━━━━━━━━━━━━
+📍 LOCATION DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Pickup / Starting Location:
+${pickup}
+
+Destination:
+${destination || "Not applicable"}
+
+Location Details:
+${locationDetails || "None provided"}
+
+━━━━━━━━━━━━━━━━━━
+📝 ERRAND DETAILS
+━━━━━━━━━━━━━━━━━━
+
+What needs to be done:
+${description}
+
+Estimated Budget:
+${budget || "Not specified"}
+
+Additional Instructions:
+${instructions || "None provided"}
+
+━━━━━━━━━━━━━━━━━━
+
+Please confirm availability and the service fee.
+
+Thank you,
+${fullName}
+
+Sent via the ErrandGo website.`;
+
+        /* =================================================
+           OPEN WHATSAPP
+        ================================================= */
+
+        const whatsappURL =
+            "https://wa.me/" +
+            ERRANDGO_CONFIG.whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+        const whatsappWindow =
+            window.open(
+                whatsappURL,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        if (!whatsappWindow) {
+            alert(
+                "Your browser blocked the WhatsApp window. " +
+                "Please allow pop-ups for ErrandGo and try again."
+            );
+        }
+    });
+}
 
     /* =====================================================
        CURRENT YEAR
