@@ -172,7 +172,12 @@ button {
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
 }
-
+/* Active Order Now button */
+.nav-links .nav-button.active {
+    background: var(--color-primary-dark);
+    color: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+}
 .menu-toggle {
     display: none;
     flex-direction: column;
