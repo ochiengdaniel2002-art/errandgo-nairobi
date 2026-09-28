@@ -708,6 +708,213 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const form = document.getElementById("errandRequestForm");
+    const serviceSelect = document.getElementById("service");
+    const dateInput = document.getElementById("preferredDate");
+
+    /* ==========================================
+       SET MINIMUM DATE TO TODAY
+    ========================================== */
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    dateInput.min = `${year}-${month}-${day}`;
+
+
+    /* ==========================================
+       AUTO SELECT SERVICE FROM URL
+       Example:
+       request.html?service=shopping
+    ========================================== */
+
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
+
+    const serviceMap = {
+        shopping: "Shopping & Grocery Runs",
+        delivery: "Pickups & Deliveries",
+        personal: "Personal Errands",
+        document: "Document Runs",
+        business: "Business Errands"
+    };
+
+    if (service && serviceMap[service]) {
+        serviceSelect.value = serviceMap[service];
+    }
+
+
+    /* ==========================================
+       FORM SUBMISSION
+    ========================================== */
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const fullName =
+            document.getElementById("fullName").value.trim();
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const selectedService =
+            serviceSelect.value;
+
+        const pickup =
+            document.getElementById("pickupLocation").value.trim();
+
+        const destination =
+            document.getElementById("destination").value.trim();
+
+        const locationDetails =
+            document.getElementById("locationDetails").value.trim();
+
+        const preferredDate =
+            document.getElementById("preferredDate").value;
+
+        const preferredTime =
+            document.getElementById("preferredTime").value;
+
+        const description =
+            document.getElementById("description").value.trim();
+
+        const budget =
+            document.getElementById("budget").value;
+
+        const urgency =
+            document.getElementById("urgency").value;
+
+        const instructions =
+            document.getElementById("instructions").value.trim();
+
+
+        /* ==========================================
+           FORMAT DATE
+        ========================================== */
+
+        let formattedDate = preferredDate;
+
+        if (preferredDate) {
+
+            const date = new Date(preferredDate + "T00:00:00");
+
+            formattedDate = date.toLocaleDateString(
+                "en-KE",
+                {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
+        }
+
+
+        /* ==========================================
+           CREATE WHATSAPP MESSAGE
+        ========================================== */
+
+        let message =
+`Hello ErrandGo! 👋
+
+I'd like to make an errand request.
+
+━━━━━━━━━━━━━━━━━━
+📋 REQUEST DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Service:
+${selectedService}
+
+Priority:
+${urgency}
+
+Preferred Date:
+${formattedDate}
+
+Preferred Time:
+${preferredTime}
+
+━━━━━━━━━━━━━━━━━━
+👤 CUSTOMER DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Name:
+${fullName}
+
+Phone:
+${phone}
+
+Email:
+${email || "Not provided"}
+
+━━━━━━━━━━━━━━━━━━
+📍 LOCATION DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Pickup / Starting Location:
+${pickup}
+
+Destination:
+${destination || "Not applicable"}
+
+Location Details:
+${locationDetails || "None provided"}
+
+━━━━━━━━━━━━━━━━━━
+📝 ERRAND DETAILS
+━━━━━━━━━━━━━━━━━━
+
+What needs to be done:
+${description}
+
+Estimated Budget:
+${budget || "Not specified"}
+
+Additional Instructions:
+${instructions || "None provided"}
+
+━━━━━━━━━━━━━━━━━━
+
+Please confirm availability and the service fee.
+
+Thank you,
+${fullName}`;
+
+
+        /* ==========================================
+           OPEN WHATSAPP
+        ========================================== */
+
+        const whatsappNumber = "254740987815";
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(
+            whatsappURL,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    });
+
+});
+</script>
 </body>
 </html>
