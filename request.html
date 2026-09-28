@@ -160,179 +160,504 @@
     </div>
 </section>
 
-<!-- REQUEST -->
+<!-- REQUEST / BOOKING SECTION -->
 <section class="request-section">
+
     <div class="request-container">
 
         <div class="request-card">
 
+            <!-- HEADER -->
             <div class="request-header">
-                <div class="request-header-icon">&#128757;</div>
+
+                <div class="request-header-icon">
+                    &#128221;
+                </div>
+
                 <h2>Request an Errand</h2>
-                <p>Fill in the details below and we'll contact you on WhatsApp to confirm.</p>
+
+                <p>
+                    Tell us what you need and we'll confirm the details,
+                    availability and service fee with you on WhatsApp.
+                </p>
+
             </div>
 
-            <form id="errandForm" novalidate>
 
-                <!-- 01 — YOUR INFORMATION -->
+            <!-- BOOKING FORM -->
+            <form id="errandRequestForm" class="request-form">
+
+                <!-- ================================
+                     01 — SERVICE
+                ================================= -->
                 <div class="form-section">
+
                     <div class="form-section-title">
+
                         <span>01</span>
-                        <div>
-                            <h3>Your Information</h3>
-                            <p>Tell us how we can reach you.</p>
-                        </div>
-                    </div>
 
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="customerName">Full Name <span>*</span></label>
-                            <input type="text" id="customerName" name="customerName"
-                                   placeholder="e.g. John Kamau" autocomplete="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="customerPhone">Phone Number <span>*</span></label>
-                            <input type="tel" id="customerPhone" name="customerPhone"
-                                   placeholder="e.g. 0712 345 678" autocomplete="tel" inputmode="tel" required>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 02 — SERVICE -->
-                <div class="form-section">
-                    <div class="form-section-title">
-                        <span>02</span>
                         <div>
                             <h3>What do you need?</h3>
-                            <p>Choose the service that best describes your request.</p>
+                            <p>Select the service that best matches your request.</p>
                         </div>
+
                     </div>
 
-                    <div class="form-group">
-                        <label for="serviceType">Service <span>*</span></label>
-                        <select id="serviceType" name="serviceType" required>
-                            <option value="">Select a service</option>
-                            <option value="Shopping & Grocery Runs">Shopping & Grocery Runs</option>
-                            <option value="Pickups & Deliveries">Pickups & Deliveries</option>
-                            <option value="Personal Errands">Personal Errands</option>
-                            <option value="Document Runs">Document Runs</option>
-                            <option value="Business Errands">Business Errands</option>
-                            <option value="Something Else">Something Else</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- 03 — LOCATIONS -->
-                <div class="form-section">
-                    <div class="form-section-title">
-                        <span>03</span>
-                        <div>
-                            <h3>Where?</h3>
-                            <p>Tell us where the errand starts and where it needs to go.</p>
-                        </div>
-                    </div>
 
                     <div class="form-grid">
-                        <div class="form-group">
-                            <label for="pickupLocation">Pickup / Starting Location <span>*</span></label>
-                            <input type="text" id="pickupLocation" name="pickupLocation"
-                                   placeholder="e.g. Westlands" autocomplete="street-address" required>
+
+                        <div class="form-group full-width">
+
+                            <label for="service">
+                                Service <span>*</span>
+                            </label>
+
+                            <select id="service"
+                                    name="service"
+                                    required>
+
+                                <option value="">
+                                    Select a service
+                                </option>
+
+                                <option value="Shopping & Grocery Runs">
+                                    Shopping & Grocery Runs
+                                </option>
+
+                                <option value="Pickups & Deliveries">
+                                    Pickups & Deliveries
+                                </option>
+
+                                <option value="Personal Errands">
+                                    Personal Errands
+                                </option>
+
+                                <option value="Document Runs">
+                                    Document Runs
+                                </option>
+
+                                <option value="Business Errands">
+                                    Business Errands
+                                </option>
+
+                                <option value="Other">
+                                    Other / Not Listed
+                                </option>
+
+                            </select>
+
                         </div>
-                        <div class="form-group">
-                            <label for="destination">Destination</label>
-                            <input type="text" id="destination" name="destination"
-                                   placeholder="e.g. Kilimani" autocomplete="street-address">
-                        </div>
+
                     </div>
 
-                    <p class="form-note">If there is no specific destination, simply describe where the errand needs to take place in the details section below.</p>
                 </div>
 
-                <!-- 04 — DATE & TIME -->
+
+                <!-- ================================
+                     02 — CUSTOMER DETAILS
+                ================================= -->
                 <div class="form-section">
+
                     <div class="form-section-title">
-                        <span>04</span>
+
+                        <span>02</span>
+
                         <div>
-                            <h3>When?</h3>
+                            <h3>Your Details</h3>
+                            <p>So we know who we're assisting.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="fullName">
+                                Full Name <span>*</span>
+                            </label>
+
+                            <input type="text"
+                                   id="fullName"
+                                   name="fullName"
+                                   placeholder="e.g. Daniel Ochieng"
+                                   autocomplete="name"
+                                   required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone / WhatsApp <span>*</span>
+                            </label>
+
+                            <input type="tel"
+                                   id="phone"
+                                   name="phone"
+                                   placeholder="e.g. 0740 987 815"
+                                   autocomplete="tel"
+                                   required>
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label for="email">
+                                Email Address
+                                <span class="optional">(optional)</span>
+                            </label>
+
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   placeholder="you@example.com"
+                                   autocomplete="email">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================
+                     03 — LOCATION
+                ================================= -->
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <span>03</span>
+
+                        <div>
+                            <h3>Where should we go?</h3>
+                            <p>Give us the locations involved in your errand.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+
+                            <label for="pickupLocation">
+                                Pickup / Starting Location
+                                <span>*</span>
+                            </label>
+
+                            <input type="text"
+                                   id="pickupLocation"
+                                   name="pickupLocation"
+                                   placeholder="e.g. Westlands, Nairobi"
+                                   required>
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label for="destination">
+                                Destination / Delivery Location
+                            </label>
+
+                            <input type="text"
+                                   id="destination"
+                                   name="destination"
+                                   placeholder="e.g. Kilimani, Nairobi">
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label for="locationDetails">
+                                Location Details
+                            </label>
+
+                            <textarea id="locationDetails"
+                                      name="locationDetails"
+                                      placeholder="Building name, apartment, office, landmark, floor, contact person, etc."
+                                      rows="3"></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================
+                     04 — DATE & TIME
+                ================================= -->
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <span>04</span>
+
+                        <div>
+                            <h3>When do you need it?</h3>
                             <p>Choose your preferred date and time.</p>
                         </div>
+
                     </div>
+
 
                     <div class="form-grid">
+
                         <div class="form-group">
-                            <label for="preferredDate">Preferred Date <span>*</span></label>
-                            <input type="date" id="preferredDate" name="preferredDate" required>
+
+                            <label for="preferredDate">
+                                Preferred Date <span>*</span>
+                            </label>
+
+                            <input type="date"
+                                   id="preferredDate"
+                                   name="preferredDate"
+                                   required>
+
                         </div>
+
+
                         <div class="form-group">
-                            <label for="preferredTime">Preferred Time <span>*</span></label>
-                            <input type="time" id="preferredTime" name="preferredTime" required>
+
+                            <label for="preferredTime">
+                                Preferred Time <span>*</span>
+                            </label>
+
+                            <input type="time"
+                                   id="preferredTime"
+                                   name="preferredTime"
+                                   required>
+
                         </div>
+
                     </div>
+
                 </div>
 
-                <!-- 05 — DETAILS -->
+
+                <!-- ================================
+                     05 — ERRAND DETAILS
+                ================================= -->
                 <div class="form-section">
+
                     <div class="form-section-title">
+
                         <span>05</span>
+
                         <div>
-                            <h3>Tell us more</h3>
-                            <p>Give us enough information to understand exactly what you need.</p>
+                            <h3>Tell us about the errand</h3>
+                            <p>The more details you provide, the better we can assist you.</p>
                         </div>
+
                     </div>
 
-                    <div class="form-group full-width">
-                        <label for="errandDetails">Errand Details <span>*</span></label>
-                        <textarea id="errandDetails" name="errandDetails" rows="6"
-                                  placeholder="Describe what you need us to do. For example: Buy 2 packets of milk, bread and eggs from a supermarket and deliver them to my apartment..."
-                                  required></textarea>
+
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+
+                            <label for="description">
+                                What needs to be done? <span>*</span>
+                            </label>
+
+                            <textarea id="description"
+                                      name="description"
+                                      placeholder="Please describe the errand in detail..."
+                                      rows="6"
+                                      required></textarea>
+
+                            <p class="form-note">
+                                Include important details such as items,
+                                quantities, instructions or special requirements.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="budget">
+                                Estimated Budget
+                            </label>
+
+                            <select id="budget"
+                                    name="budget">
+
+                                <option value="">
+                                    Select an option
+                                </option>
+
+                                <option value="Below KSh 1,000">
+                                    Below KSh 1,000
+                                </option>
+
+                                <option value="KSh 1,000 – 2,500">
+                                    KSh 1,000 – 2,500
+                                </option>
+
+                                <option value="KSh 2,500 – 5,000">
+                                    KSh 2,500 – 5,000
+                                </option>
+
+                                <option value="Above KSh 5,000">
+                                    Above KSh 5,000
+                                </option>
+
+                                <option value="Not sure">
+                                    Not sure
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="urgency">
+                                Priority
+                            </label>
+
+                            <select id="urgency"
+                                    name="urgency">
+
+                                <option value="Standard">
+                                    Standard
+                                </option>
+
+                                <option value="Urgent">
+                                    Urgent
+                                </option>
+
+                                <option value="Same Day">
+                                    Same Day
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label for="instructions">
+                                Additional Instructions
+                            </label>
+
+                            <textarea id="instructions"
+                                      name="instructions"
+                                      placeholder="Anything else we should know?"
+                                      rows="4"></textarea>
+
+                        </div>
+
                     </div>
+
                 </div>
 
-                <!-- 06 — BUDGET -->
+
+                <!-- ================================
+                     06 — CONFIRMATION
+                ================================= -->
                 <div class="form-section">
+
                     <div class="form-section-title">
+
                         <span>06</span>
+
                         <div>
-                            <h3>Estimated Budget</h3>
-                            <p>Optional &mdash; this helps us understand the size of the errand.</p>
+                            <h3>Final Confirmation</h3>
+                            <p>Please review your request before sending it.</p>
                         </div>
+
                     </div>
 
-                    <div class="form-group">
-                        <label for="budget">Estimated Budget (KES)</label>
-                        <input type="number" id="budget" name="budget" min="0" step="50"
-                               inputmode="numeric" placeholder="e.g. 2000">
-                    </div>
 
-                    <p class="form-note">The final service fee will be confirmed with you via WhatsApp before we proceed.</p>
+                    <label class="booking-checkbox">
+
+                        <input type="checkbox"
+                               id="confirmation"
+                               name="confirmation"
+                               required>
+
+                        <span>
+                            I confirm that the information provided is
+                            accurate and I understand that ErrandGo will
+                            confirm the final service details and fee with me.
+                        </span>
+
+                    </label>
+
                 </div>
 
-                <!-- SUBMIT -->
+
+                <!-- ================================
+                     SUBMIT
+                ================================= -->
                 <div class="request-submit">
-                    <button type="submit" class="submit-button">
-                        <span>Send Request via WhatsApp</span>
-                        <span class="submit-arrow">&rarr;</span>
+
+                    <button type="submit"
+                            class="submit-button">
+
+                        <span>&#128172;</span>
+
+                        Send Request on WhatsApp
+
+                        <span class="submit-arrow">
+                            &rarr;
+                        </span>
+
                     </button>
-                    <p class="secure-note">Your request will open in WhatsApp for confirmation. We won't submit anything without your approval.</p>
+
+
+                    <p class="secure-note">
+                        &#128274;
+                        Your request will open directly in WhatsApp.
+                        No payment is taken through this form.
+                    </p>
+
                 </div>
 
             </form>
-        </div>
 
-        <!-- HELP CARD -->
-        <div class="request-help">
-            <div class="request-help-icon">&#128172;</div>
-            <div>
-                <h3>Not sure what to select?</h3>
-                <p>No problem. Tell us what you need and we'll help you figure it out.</p>
+
+            <!-- HELP CARD -->
+            <div class="request-help">
+
+                <div>
+
+                    <strong>Need help with your request?</strong>
+
+                    <p>
+                        You can also contact ErrandGo directly on WhatsApp
+                        if you're unsure what information to provide.
+                    </p>
+
+                </div>
+
+
+                <a href="https://wa.me/254740987815?text=Hi%20ErrandGo%2C%20I%20need%20help%20with%20an%20errand%20request."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="help-button">
+
+                    WhatsApp Us
+
+                </a>
+
             </div>
-            <a href="https://wa.me/254740987815?text=Hi%20ErrandGo%2C%20I%20need%20help%20with%20an%20errand."
-               target="_blank" rel="noopener noreferrer" class="help-button">
-                Chat with us &rarr;
-            </a>
+
         </div>
 
     </div>
+
 </section>
 
 <!-- CTA -->
