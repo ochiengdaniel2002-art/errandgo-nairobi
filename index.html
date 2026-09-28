@@ -149,31 +149,59 @@
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <header class="navbar">
     <div class="nav-container">
-        <a href="index.html" class="logo" aria-label="ErrandGo Home">
-            Errand<span>Go</span>
+
+    <!-- Logo -->
+    <a href="index.html"
+       class="logo"
+       aria-label="ErrandGo Home">
+        Errand<span>Go</span>
+    </a>
+
+    <!-- Desktop / Mobile Navigation -->
+    <nav class="nav-links"
+         id="navLinks"
+         aria-label="Main navigation">
+
+        <a href="index.html" class="active">Home</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="index.html#faq">FAQ</a>
+
+        <a href="request.html" class="nav-button">
+            Order Now
         </a>
 
-        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-            <a href="index.html" class="active">Home</a>
-            <a href="services.html">Services</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="request.html" class="nav-button">Order Now</a>
-        </nav>
+    </nav>
 
-        <button class="menu-toggle" id="menuToggle" type="button"
-                aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</div>
+
 </header>
 
-<main>
 
 <!-- HERO -->
 <section class="hero">
