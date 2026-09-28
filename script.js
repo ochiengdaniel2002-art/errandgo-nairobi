@@ -242,3 +242,63 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const faqQuestions =
+        document.querySelectorAll(".faq-question");
+
+
+    faqQuestions.forEach(function (question) {
+
+        question.addEventListener("click", function () {
+
+            const currentItem =
+                question.closest(".faq-item");
+
+            const isAlreadyOpen =
+                currentItem.classList.contains("active");
+
+
+            /* Close all FAQs */
+
+            document.querySelectorAll(".faq-item")
+                .forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                    const button =
+                        item.querySelector(".faq-question");
+
+                    if (button) {
+                        button.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+                    }
+
+                });
+
+
+            /* Open selected FAQ */
+
+            if (!isAlreadyOpen) {
+
+                currentItem.classList.add("active");
+
+                question.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            }
+
+        });
+
+    });
+
+});
