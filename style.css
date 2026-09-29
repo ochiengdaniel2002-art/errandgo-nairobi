@@ -2892,3 +2892,23 @@ footer {
     }
 }
 
+/* =========================================================
+   ACCESSIBILITY — COLOR CONTRAST
+========================================================= */
+
+/* Improve contrast for light-background text */
+.hero p {
+    color: #334155;
+}
+
+/* Improve footer text contrast */
+.footer,
+.footer p,
+.footer a {
+    color: #e2e8f0;
+}
+
+/* Keep footer links clearly readable */
+.footer a:hover {
+    color: #ffffff;
+}
