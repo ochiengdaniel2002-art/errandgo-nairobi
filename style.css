@@ -2216,7 +2216,15 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+/* =========================================================
+   PERFORMANCE — SHOW ABOVE-THE-FOLD CONTENT IMMEDIATELY
+========================================================= */
 
+.hero .fade-in,
+.page-hero .fade-in {
+    opacity: 1;
+    transform: none;
+}
 /* =========================================================
    17. RESPONSIVE — TABLET
 ========================================================= */
