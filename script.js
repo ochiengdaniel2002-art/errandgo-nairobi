@@ -99,28 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* =====================================================
-       SERVICE QUERY PARAMETERS
-    ===================================================== */
-
-    const serviceMap = {
-        shopping: "Shopping & Grocery Runs",
-        delivery: "Pickups & Deliveries",
-        personal: "Personal Errands",
-        document: "Document Runs",
-        business: "Business Errands",
-        other: "Something Else"
-    };
-
-    const serviceSelect = document.getElementById("serviceType");
-    if (serviceSelect) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedService = urlParams.get("service");
-        if (selectedService && serviceMap[selectedService]) {
-            serviceSelect.value = serviceMap[selectedService];
-        }
-    }
-
    /* =====================================================
    REQUEST / BOOKING FORM
 ===================================================== */
@@ -165,7 +143,8 @@ if (errandForm) {
             delivery: "Pickups & Deliveries",
             personal: "Personal Errands",
             document: "Document Runs",
-            business: "Business Errands"
+            business: "Business Errands",
+            other: "Other"
         };
 
         if (

@@ -34,17 +34,17 @@
 
 <link rel="apple-touch-icon"
       sizes="180x180"
-      href="favicon/apple-touch-icon.png">
+      href="apple-touch-icon.png">
 
 <link rel="icon"
       type="image/png"
       sizes="192x192"
-      href="favicon/icon-192.png">
+      href="icon-192.png">
 
 <link rel="icon"
       type="image/png"
       sizes="512x512"
-      href="favicon/icon-512.png">
+      href="icon-512.png">
 
 <!-- Web App Manifest -->
 <link rel="manifest"
@@ -112,9 +112,15 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+          onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap">
+    </noscript>
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet"
@@ -314,7 +320,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 ErrandGo. All rights reserved.</p>
+            <p>&copy; <span id="currentYear">2026</span> ErrandGo. All rights reserved.</p>
             <p>Your Errand. Our Mission.</p>
         </div>
     </div>

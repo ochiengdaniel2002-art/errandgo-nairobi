@@ -34,17 +34,17 @@
 
 <link rel="apple-touch-icon"
       sizes="180x180"
-      href="favicon/apple-touch-icon.png">
+      href="apple-touch-icon.png">
 
 <link rel="icon"
       type="image/png"
       sizes="192x192"
-      href="favicon/icon-192.png">
+      href="icon-192.png">
 
 <link rel="icon"
       type="image/png"
       sizes="512x512"
-      href="favicon/icon-512.png">
+      href="icon-512.png">
 
 <!-- Web App Manifest -->
 <link rel="manifest"
@@ -112,12 +112,14 @@
       href="https://fonts.gstatic.com"
       crossorigin>
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'">
 
 <noscript>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap">
 </noscript>
 
 
@@ -342,6 +344,59 @@
     .trust-item small {
         font-size: .75rem;
         color: #94a3b8;
+    }
+
+
+    /* =========================
+       HERO VISUAL (reserve space)
+    ========================= */
+
+    .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-circle {
+        position: absolute;
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #dbeafe, #ede9fe);
+        opacity: .6;
+    }
+
+    .phone-card {
+        position: relative;
+        width: 300px;
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, .1);
+        padding: 24px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .floating-card {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        padding: 12px 16px;
+        border-radius: 12px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, .08);
+        border: 1px solid #e2e8f0;
+    }
+
+    .floating-card-one {
+        top: 20px;
+        right: -20px;
+    }
+
+    .floating-card-two {
+        bottom: 40px;
+        left: -20px;
     }
 
 
@@ -1107,7 +1162,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 ErrandGo. All rights reserved.</p>
+            <p>&copy; <span id="currentYear">2026</span> ErrandGo. All rights reserved.</p>
             <p>Your Errand. Our Mission.</p>
         </div>
     </div>
