@@ -133,7 +133,7 @@
     --color-surface: #ffffff;
     --color-text: #0f172a;
     --color-text-secondary: #475569;
-    --color-text-muted: #94a3b8;
+    --color-text-muted: #64748b;
     --color-primary: #2563eb;
     --color-primary-dark: #1d4ed8;
     --color-primary-light: #dbeafe;
@@ -141,6 +141,7 @@
     --color-accent-light: #fef3c7;
     --color-success: #16a34a;
     --color-success-light: #dcfce7;
+    --color-success-dark: #166534;
     --color-border: #e2e8f0;
     --color-border-light: #f1f5f9;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -264,7 +265,7 @@ button {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     background: var(--color-primary-light);
 }
 
@@ -379,7 +380,7 @@ button {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     background: var(--color-primary-light);
     padding: 8px 16px;
     border-radius: 100px;
@@ -536,7 +537,7 @@ button {
 }
 
 .phone-top span:last-child {
-    color: #22c55e;
+    color: var(--color-success-dark);
 }
 
 .phone-main {
@@ -609,7 +610,7 @@ button {
 
 .status-line small {
     font-size: 0.6875rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
 }
 
 .phone-bottom {
@@ -865,7 +866,6 @@ button {
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--color-text-muted);
-    opacity: 0.5;
 }
 
 .service-card h3 {
@@ -1049,7 +1049,7 @@ button {
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     background: var(--color-primary-light);
     width: 32px;
     height: 32px;
@@ -1136,7 +1136,7 @@ button {
     align-items: center;
     justify-content: center;
     background: var(--color-success-light);
-    color: var(--color-success);
+    color: var(--color-success-dark);
     font-size: 0.75rem;
     font-weight: 700;
     border-radius: 50%;
@@ -1916,7 +1916,7 @@ button {
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     background: var(--color-primary-light);
     width: 32px;
     height: 32px;
@@ -2021,7 +2021,7 @@ button {
     align-items: center;
     justify-content: center;
     background: var(--color-primary-light);
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 700;
@@ -2595,7 +2595,7 @@ footer {
     padding: 13px 18px;
 
     background: #25D366;
-    color: #ffffff;
+    color: var(--color-text);
 
     border-radius: 50px;
 
@@ -2615,7 +2615,7 @@ footer {
 
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 
-    color: #ffffff;
+    color: var(--color-text);
 }
 
 .whatsapp-icon {
@@ -2824,7 +2824,7 @@ footer {
     border-radius: 50%;
 
     background: var(--color-primary-light);
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
 
     font-size: 1.25rem;
     font-weight: 500;
