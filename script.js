@@ -4,7 +4,7 @@
 ========================================================= */
 
 const ERRANDGO_CONFIG = {
-    whatsappNumber: "254740987815",
+    whatsappNumber: "254181903225",
     businessName: "ErrandGo",
     tagline: "Your Errand. Our Mission.",
     maxMenuWidth: 768
