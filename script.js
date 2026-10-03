@@ -291,6 +291,7 @@ if (errandForm) {
 `Hello ErrandGo! 👋
 
 I'd like to make an errand request.
+Request received through the website.
 
 ━━━━━━━━━━━━━━━━━━
 📋 REQUEST DETAILS
