@@ -139,13 +139,21 @@ if (errandForm) {
             urlParams.get("service");
 
         const serviceMap = {
-            shopping: "Shopping & Grocery Runs",
-            delivery: "Pickups & Deliveries",
-            personal: "Personal Errands",
-            document: "Document Runs",
-            business: "Business Errands",
-            other: "Other"
-        };
+    shopping: "Shopping & Grocery Runs",
+    personal: "Personal Errands",
+    dry-cleaning: "Dry Cleaning & Laundry Runs",
+    gift: "Gift Delivery",
+
+    delivery: "Pickups & Deliveries",
+    "same-day-delivery": "Same-Day Delivery",
+    document: "Document Runs",
+
+    business: "Business Errands",
+    "ecommerce-fulfilment": "E-commerce Fulfilment",
+    "order-collection": "Order Collection & Dispatch",
+
+    other: "Other"
+};
 
         if (
             selectedService &&
