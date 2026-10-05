@@ -2662,10 +2662,6 @@ footer {
    PROFESSIONAL BOOKING FORM ENHANCEMENTS
 ========================================================= */
 
-
-
-
-
 /* Optional text */
 .optional {
     color: var(--color-text-muted) !important;
@@ -2729,10 +2725,6 @@ footer {
 
 /* Mobile */
 @media (max-width: 768px) {
-
-
-
-
 
     .request-card {
         border-radius: var(--radius-lg);
