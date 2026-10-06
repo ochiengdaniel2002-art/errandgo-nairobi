@@ -4,7 +4,7 @@
 ========================================================= */
 
 const ERRANDGO_CONFIG = {
-    whatsappNumber: "254740987815",
+    whatsappNumber: "254181903225",
     businessName: "ErrandGo",
     tagline: "Your Errand. Our Mission.",
     maxMenuWidth: 768
@@ -140,10 +140,15 @@ if (errandForm) {
 
         const serviceMap = {
             shopping: "Shopping & Grocery Runs",
-            delivery: "Pickups & Deliveries",
             personal: "Personal Errands",
+            "dry-cleaning": "Dry Cleaning & Laundry Runs",
+            gift: "Gift Delivery",
+            delivery: "Pickups & Deliveries",
+            "same-day-delivery": "Same-Day Delivery",
             document: "Document Runs",
             business: "Business Errands",
+            "ecommerce-fulfilment": "E-commerce Fulfilment",
+            "order-collection": "Order Collection & Dispatch",
             other: "Other"
         };
 
@@ -291,6 +296,7 @@ if (errandForm) {
 `Hello ErrandGo! 👋
 
 I'd like to make an errand request.
+Request received through the website.
 
 ━━━━━━━━━━━━━━━━━━
 📋 REQUEST DETAILS
