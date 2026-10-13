@@ -537,35 +537,31 @@
             Order Now
         </a>
 
-        <!-- Dark Mode Toggle -->
-        <button
-            class="theme-toggle"
-            id="themeToggle"
-            type="button"
-            aria-label="Switch to dark mode"
-            title="Switch theme"
-        >
-            <span id="themeIcon" aria-hidden="true">🌙</span>
-            <span class="theme-toggle-text">Dark mode</span>
-        </button>
-
-    </nav>
-        
-    <!-- Mobile Menu Button -->
-    <button class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="navLinks">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </button>
-
-</div>
+<!-- Dark Mode Toggle -->
+<button
+    class="theme-toggle"
+    id="themeToggle"
+    type="button"
+    aria-label="Switch to dark mode"
+    title="Switch theme"
+>
+    <span id="themeIcon" class="theme-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M4.93 4.93l1.42 1.42"></path>
+            <path d="M17.65 17.65l1.42 1.42"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M6.35 17.65l-1.42 1.42"></path>
+            <path d="M19.07 4.93l-1.42 1.42"></path>
+        </svg>
+    </span>
+    <span id="themeText">Dark Mode</span>
+</button>
 
 </header>
 
