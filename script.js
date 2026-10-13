@@ -494,15 +494,43 @@ function applyTheme(theme) {
         );
     }
 
-    if (themeIcon) {
-        themeIcon.textContent = theme === "dark" ? "☀️" : "🌙";
-    }
+   
+if (themeIcon) {
+    const sunMoonIcon = `
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M4.93 4.93l1.42 1.42"></path>
+            <path d="M17.65 17.65l1.42 1.42"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M6.35 17.65l-1.42 1.42"></path>
+            <path d="M19.07 4.93l-1.42 1.42"></path>
+        </svg>`;
 
-    if (themeText) {
-        themeText.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
-    }
+    const moonIcon = `
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.9 13A9 9 0 0 1 11 3.1
+                     9 9 0 1 0 20.9 13Z"></path>
+            <path d="M17 3v4"></path>
+            <path d="M15 5h4"></path>
+        </svg>`;
+
+    themeIcon.innerHTML = theme === "dark"
+        ? sunMoonIcon
+        : moonIcon;
 }
 
+if (themeText) {
+    themeText.textContent = theme === "dark"
+        ? "Light Mode"
+        : "Dark Mode";
+}
 let savedTheme = "light";
 
 try {
