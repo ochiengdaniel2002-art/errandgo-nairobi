@@ -473,3 +473,59 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+/* =========================================
+   ERRANDGO NAIROBI — DARK MODE
+========================================= */
+
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeText = document.getElementById("themeText");
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+
+    if (themeToggle) {
+        themeToggle.setAttribute(
+            "aria-label",
+            theme === "dark"
+                ? "Switch to light mode"
+                : "Switch to dark mode"
+        );
+    }
+
+    if (themeIcon) {
+        themeIcon.textContent = theme === "dark" ? "☀️" : "🌙";
+    }
+
+    if (themeText) {
+        themeText.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
+    }
+}
+
+let savedTheme = "light";
+
+try {
+    savedTheme = localStorage.getItem("errandgo-theme") || "light";
+} catch (error) {
+    savedTheme = "light";
+}
+
+applyTheme(savedTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme") || "light";
+
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        applyTheme(newTheme);
+
+        try {
+            localStorage.setItem("errandgo-theme", newTheme);
+        } catch (error) {
+            // Theme switching still works if storage is unavailable.
+        }
+    });
+}
