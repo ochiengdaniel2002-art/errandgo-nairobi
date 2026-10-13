@@ -3028,3 +3028,161 @@ footer {
     font-size: .875rem;
     color: var(--color-text-muted);
 }
+
+/* =========================================================
+   21. ERRANDGO DARK MODE
+========================================================= */
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-bg: #0b1120;
+    --color-surface: #111c2e;
+    --color-text: #f1f5f9;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+
+    --color-primary: #60a5fa;
+    --color-primary-dark: #93c5fd;
+    --color-primary-light: #1e3a5f;
+
+    --color-accent: #fbbf24;
+    --color-accent-light: #422006;
+
+    --color-success: #4ade80;
+    --color-success-light: #14532d;
+    --color-success-dark: #bbf7d0;
+
+    --color-border: #29364a;
+    --color-border-light: #1e293b;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Navbar and mobile menu */
+html[data-theme="dark"] .navbar {
+    background: rgba(11, 17, 32, 0.94);
+}
+
+html[data-theme="dark"] .nav-links {
+    background: #111c2e;
+}
+
+html[data-theme="dark"] .menu-toggle:hover {
+    background: #29364a;
+}
+
+/* Main page backgrounds */
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] .page-hero {
+    background: linear-gradient(180deg, #111c2e 0%, #0b1120 100%);
+}
+
+html[data-theme="dark"] .hero .hero-content > p {
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] .hero-trust .trust-icon,
+html[data-theme="dark"] .status-line,
+html[data-theme="dark"] .coverage-location {
+    background: #1e293b;
+}
+
+/* Cards and forms */
+html[data-theme="dark"] .service-card,
+html[data-theme="dark"] .faq-card,
+html[data-theme="dark"] .faq-item,
+html[data-theme="dark"] .value-card,
+html[data-theme="dark"] .highlight-card,
+html[data-theme="dark"] .coverage-card,
+html[data-theme="dark"] .request-card,
+html[data-theme="dark"] .contact-method {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+html[data-theme="dark"] .form-group input,
+html[data-theme="dark"] .form-group select,
+html[data-theme="dark"] .form-group textarea {
+    background: #0b1120;
+    color: #f1f5f9;
+    border-color: #374151;
+}
+
+html[data-theme="dark"] .form-group input::placeholder,
+html[data-theme="dark"] .form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .request-header {
+    background: linear-gradient(180deg, #1e293b, transparent);
+}
+
+html[data-theme="dark"] .booking-checkbox {
+    background: #0b1120;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+/* FAQ */
+html[data-theme="dark"] .faq-question {
+    color: var(--color-text);
+}
+
+html[data-theme="dark"] .faq-icon {
+    background: #1e3a5f;
+    color: #bfdbfe;
+}
+
+/* Secondary buttons and links */
+html[data-theme="dark"] .hero-button.secondary {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+html[data-theme="dark"] .section-link a:hover,
+html[data-theme="dark"] .booking-checkbox:hover {
+    background: #1e3a5f;
+}
+
+/* Legal pages */
+html[data-theme="dark"] .privacy-content h2,
+html[data-theme="dark"] .privacy-content strong {
+    color: var(--color-text);
+}
+
+/* Smooth theme transition */
+body,
+.navbar,
+.nav-links,
+.service-card,
+.faq-item,
+.value-card,
+.highlight-card,
+.contact-method,
+.request-card {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .navbar,
+    .nav-links,
+    .service-card,
+    .faq-item,
+    .value-card,
+    .highlight-card,
+    .contact-method,
+    .request-card {
+        transition: none;
+    }
+}
