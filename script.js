@@ -506,9 +506,19 @@ function applyTheme(theme) {
 let savedTheme = "light";
 
 try {
-    savedTheme = localStorage.getItem("errandgo-theme") || "light";
+    const storedTheme = localStorage.getItem("errandgo-theme");
+
+    if (storedTheme) {
+        savedTheme = storedTheme;
+    } else {
+        savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+    }
 } catch (error) {
-    savedTheme = "light";
+    savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
 }
 
 applyTheme(savedTheme);
