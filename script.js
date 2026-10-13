@@ -474,96 +474,105 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+
 /* =========================================
    ERRANDGO NAIROBI — DARK MODE
 ========================================= */
 
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
-const themeText = document.getElementById("themeText");
+document.addEventListener("DOMContentLoaded", function () {
 
-function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const themeText = document.getElementById("themeText");
 
-    if (themeToggle) {
-        themeToggle.setAttribute(
-            "aria-label",
-            theme === "dark"
-                ? "Switch to light mode"
-                : "Switch to dark mode"
-        );
-    }
+    function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
 
-   
-if (themeIcon) {
-    const sunMoonIcon = `
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.8"
-             stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2"></path>
-            <path d="M12 20v2"></path>
-            <path d="M4.93 4.93l1.42 1.42"></path>
-            <path d="M17.65 17.65l1.42 1.42"></path>
-            <path d="M2 12h2"></path>
-            <path d="M20 12h2"></path>
-            <path d="M6.35 17.65l-1.42 1.42"></path>
-            <path d="M19.07 4.93l-1.42 1.42"></path>
-        </svg>`;
-
-    const moonIcon = `
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.8"
-             stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.9 13A9 9 0 0 1 11 3.1
-                     9 9 0 1 0 20.9 13Z"></path>
-            <path d="M17 3v4"></path>
-            <path d="M15 5h4"></path>
-        </svg>`;
-
-    themeIcon.innerHTML = theme === "dark"
-        ? sunMoonIcon
-        : moonIcon;
-}
-
-if (themeText) {
-    themeText.textContent = theme === "dark"
-        ? "Light Mode"
-        : "Dark Mode";
-}
-let savedTheme = "light";
-
-try {
-    const storedTheme = localStorage.getItem("errandgo-theme");
-
-    if (storedTheme) {
-        savedTheme = storedTheme;
-    } else {
-        savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-    }
-} catch (error) {
-    savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-}
-
-applyTheme(savedTheme);
-
-if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-        const currentTheme =
-            document.documentElement.getAttribute("data-theme") || "light";
-
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-        applyTheme(newTheme);
-
-        try {
-            localStorage.setItem("errandgo-theme", newTheme);
-        } catch (error) {
-            // Theme switching still works if storage is unavailable.
+        if (themeToggle) {
+            themeToggle.setAttribute(
+                "aria-label",
+                theme === "dark"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+            );
         }
-    });
-}
+
+        if (themeIcon) {
+            const sunMoonIcon = `
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="M4.93 4.93l1.42 1.42"></path>
+                    <path d="M17.65 17.65l1.42 1.42"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="M6.35 17.65l-1.42 1.42"></path>
+                    <path d="M19.07 4.93l-1.42 1.42"></path>
+                </svg>`;
+
+            const moonIcon = `
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                    <path d="M20.9 13A9 9 0 0 1 11 3.1
+                             9 9 0 1 0 20.9 13Z"></path>
+                    <path d="M17 3v4"></path>
+                    <path d="M15 5h4"></path>
+                </svg>`;
+
+            themeIcon.innerHTML =
+                theme === "dark" ? sunMoonIcon : moonIcon;
+        }
+
+        if (themeText) {
+            themeText.textContent =
+                theme === "dark" ? "Light Mode" : "Dark Mode";
+        }
+    }
+
+    // Restore the saved theme or use the device preference.
+    let savedTheme = "light";
+
+    try {
+        const storedTheme = localStorage.getItem("errandgo-theme");
+
+        if (storedTheme === "dark" || storedTheme === "light") {
+            savedTheme = storedTheme;
+        } else {
+            savedTheme = window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches ? "dark" : "light";
+        }
+    } catch (error) {
+        savedTheme = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches ? "dark" : "light";
+    }
+
+    applyTheme(savedTheme);
+
+    // Switch themes when the button is clicked.
+    if (themeToggle) {
+        themeToggle.addEventListener("click", function () {
+            const currentTheme =
+                document.documentElement.getAttribute("data-theme") || "light";
+
+            const newTheme =
+                currentTheme === "dark" ? "light" : "dark";
+
+            applyTheme(newTheme);
+
+            try {
+                localStorage.setItem("errandgo-theme", newTheme);
+            } catch (error) {
+                // Theme switching still works if storage is unavailable.
+            }
+        });
+    }
+
+});
