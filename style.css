@@ -3260,3 +3260,76 @@ html[data-theme="dark"] footer {
 html[data-theme="dark"] a:not(.btn):not(.logo) {
     color: #93c5fd;
 }
+
+/* =========================================
+   ERRANDGO — MODERN THEME TOGGLE BUTTON
+========================================= */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 16px;
+    border: 1px solid #2563eb;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.22);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.theme-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+/* Dark mode button appearance */
+html[data-theme="dark"] .theme-toggle {
+    background: #1e40af;
+    border-color: #60a5fa;
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+    background: #1d4ed8;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    .theme-toggle {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
