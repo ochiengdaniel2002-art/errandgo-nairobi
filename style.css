@@ -3062,6 +3062,31 @@ html[data-theme="dark"] {
     --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
+/* Form fields outside .form-group take this fallback;
+   the .form-group rules further down take precedence */
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+    background-color: #1e293b;
+    color: var(--color-text);
+    border-color: #475569;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* Links */
+html[data-theme="dark"] a:not(.btn):not(.logo) {
+    color: var(--color-primary-dark);
+}
+
+/* Footer */
+html[data-theme="dark"] footer {
+    background-color: #020617;
+}
+
 /* Navbar and mobile menu */
 html[data-theme="dark"] .navbar {
     background: rgba(11, 17, 32, 0.94);
@@ -3185,80 +3210,6 @@ body,
     .request-card {
         transition: none;
     }
-}
-
-/* =========================================
-   ERRANDGO NAIROBI — DARK MODE COLORS
-========================================= */
-
-:root {
-    color-scheme: light;
-    --bg-color: #fafbfc;
-    --text-color: #0f172a;
-    --card-bg: #ffffff;
-    --border-color: #e2e8f0;
-    --muted-text: #64748b;
-}
-
-:root[data-theme="dark"] {
-    color-scheme: dark;
-    --bg-color: #0f172a;
-    --text-color: #f1f5f9;
-    --card-bg: #1e293b;
-    --border-color: #334155;
-    --muted-text: #cbd5e1;
-}
-
-html[data-theme="dark"] body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-html[data-theme="dark"] section,
-html[data-theme="dark"] .service-card,
-html[data-theme="dark"] .feature-card,
-html[data-theme="dark"] .faq-item,
-html[data-theme="dark"] .contact-card {
-    color: var(--text-color);
-}
-
-html[data-theme="dark"] .service-card,
-html[data-theme="dark"] .feature-card,
-html[data-theme="dark"] .faq-item,
-html[data-theme="dark"] .contact-card,
-html[data-theme="dark"] .request-form {
-    background-color: var(--card-bg);
-    border-color: var(--border-color);
-}
-
-html[data-theme="dark"] h1,
-html[data-theme="dark"] h2,
-html[data-theme="dark"] h3,
-html[data-theme="dark"] p,
-html[data-theme="dark"] label {
-    color: var(--text-color);
-}
-
-html[data-theme="dark"] input,
-html[data-theme="dark"] select,
-html[data-theme="dark"] textarea {
-    background-color: #1e293b;
-    color: #f1f5f9;
-    border-color: #475569;
-}
-
-html[data-theme="dark"] input::placeholder,
-html[data-theme="dark"] textarea::placeholder {
-    color: #94a3b8;
-}
-
-html[data-theme="dark"] footer {
-    background-color: #020617;
-    color: #f1f5f9;
-}
-
-html[data-theme="dark"] a:not(.btn):not(.logo) {
-    color: #93c5fd;
 }
 
 /* =========================================
