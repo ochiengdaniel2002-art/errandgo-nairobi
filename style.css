@@ -3284,3 +3284,74 @@ html[data-theme="dark"] .theme-toggle:hover {
         font-size: 13px;
     }
 }
+
+/* =========================================
+   ERRANDGO — WHATSAPP & CONTACT VISIBILITY FIX
+========================================= */
+
+/* Floating WhatsApp button */
+html[data-theme="dark"] .floating-whatsapp,
+html[data-theme="light"] .floating-whatsapp,
+.floating-whatsapp {
+    background-color: #25D366 !important;
+    color: #073b20 !important;
+    text-decoration: none !important;
+    border: 1px solid #16a34a;
+}
+
+/* Floating WhatsApp text and icon */
+.floating-whatsapp .whatsapp-text,
+.floating-whatsapp .whatsapp-icon {
+    color: #073b20 !important;
+}
+
+/* Contact card buttons */
+.contact-card .contact-card-button {
+    background-color: #2563eb;
+    color: #ffffff !important;
+}
+
+.contact-card .contact-whatsapp-button {
+    background-color: #166534;
+    border: 1px solid #22c55e;
+    color: #ffffff !important;
+}
+
+/* Keep all text inside contact buttons readable */
+.contact-card .contact-card-button *,
+.contact-card .contact-whatsapp-button * {
+    color: #ffffff !important;
+}
+
+/* Request page — WhatsApp help button */
+.help-button {
+    background-color: #2563eb;
+    color: #ffffff !important;
+}
+
+.help-button:hover {
+    color: #ffffff !important;
+}
+
+/* FAQ and other WhatsApp contact links */
+.faq-contact-button {
+    background-color: #2563eb;
+    color: #ffffff !important;
+}
+
+/* Preserve readable text in dark mode */
+html[data-theme="dark"] .contact-card .contact-card-button,
+html[data-theme="dark"] .help-button,
+html[data-theme="dark"] .faq-contact-button {
+    color: #ffffff !important;
+}
+
+/* Visible keyboard focus */
+.floating-whatsapp:focus-visible,
+.contact-card-button:focus-visible,
+.contact-whatsapp-button:focus-visible,
+.help-button:focus-visible,
+.faq-contact-button:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 3px;
+}
