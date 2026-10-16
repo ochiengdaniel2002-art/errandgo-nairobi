@@ -3472,3 +3472,77 @@ html[data-theme="dark"] .btn-primary:hover {
         padding: 13px 20px;
     }
 }
+
+/* =========================================
+   ERRANDGO — REQUEST BUTTON VISIBILITY FIX
+========================================= */
+
+/* Top hero button */
+.hero-buttons a.hero-button.primary {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 2px solid #2563eb !important;
+    padding: 14px 28px;
+    min-height: 50px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+    z-index: 10;
+}
+
+/* Lower CTA button */
+.cta-section .cta-buttons a.cta-button:not(.secondary) {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 2px solid #2563eb !important;
+    padding: 14px 28px;
+    min-height: 50px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+    z-index: 10;
+}
+
+/* Hover effects */
+.hero-buttons a.hero-button.primary:hover,
+.cta-section .cta-buttons a.cta-button:not(.secondary):hover {
+    background: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Dark mode */
+[data-theme="dark"] .hero-buttons a.hero-button.primary,
+[data-theme="dark"] .cta-section .cta-buttons a.cta-button:not(.secondary) {
+    background: #3b82f6 !important;
+    border-color: #60a5fa !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .hero-buttons a.hero-button.primary,
+    .cta-section .cta-buttons a.cta-button:not(.secondary) {
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+}
