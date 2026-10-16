@@ -1226,3 +1226,111 @@
 
 </body>
 </html>
+
+/* =========================================
+   ERRANDGO — REQUEST AN ERRAND BUTTON
+   Fix visibility in light and dark mode
+========================================= */
+
+.request-errand-btn,
+a.request-errand-btn,
+button.request-errand-btn,
+.hero a[href*="request.html"],
+a[href="request.html"],
+a[href*="request.html"].btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: #2563eb;
+    color: #ffffff !important;
+
+    padding: 15px 28px;
+    min-height: 50px;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none !important;
+
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Hover effect */
+.request-errand-btn:hover,
+a.request-errand-btn:hover,
+button.request-errand-btn:hover,
+.hero a[href*="request.html"]:hover,
+a[href="request.html"]:hover,
+a[href*="request.html"].btn:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff !important;
+
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Keyboard accessibility */
+.request-errand-btn:focus-visible,
+a[href*="request.html"]:focus-visible,
+button.request-errand-btn:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 4px;
+}
+
+/* Dark mode */
+[data-theme="dark"] .request-errand-btn,
+[data-theme="dark"] a.request-errand-btn,
+[data-theme="dark"] button.request-errand-btn,
+[data-theme="dark"] .hero a[href*="request.html"],
+[data-theme="dark"] a[href="request.html"],
+[data-theme="dark"] a[href*="request.html"].btn {
+    background-color: #3b82f6;
+    border-color: #60a5fa;
+    color: #ffffff !important;
+
+    opacity: 1;
+    visibility: visible;
+
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+}
+
+/* Dark mode hover */
+[data-theme="dark"] .request-errand-btn:hover,
+[data-theme="dark"] a[href*="request.html"]:hover {
+    background-color: #2563eb;
+    border-color: #93c5fd;
+    color: #ffffff !important;
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .request-errand-btn,
+    a.request-errand-btn,
+    button.request-errand-btn,
+    .hero a[href*="request.html"],
+    a[href="request.html"],
+    a[href*="request.html"].btn {
+        padding: 13px 20px;
+        min-height: 48px;
+        font-size: 15px;
+        width: auto;
+        max-width: 100%;
+    }
+}
