@@ -3355,3 +3355,29 @@ html[data-theme="dark"] .faq-contact-button {
     outline: 3px solid #fbbf24;
     outline-offset: 3px;
 }
+/* =========================================
+   ERRANDGO — REQUEST AN ERRAND BUTTON FIX
+========================================= */
+
+html[data-theme="dark"] a.btn,
+html[data-theme="dark"] button.btn,
+html[data-theme="dark"] .btn-primary {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+}
+
+/* Keep the button text visible */
+html[data-theme="dark"] a.btn *,
+html[data-theme="dark"] button.btn *,
+html[data-theme="dark"] .btn-primary * {
+    color: #ffffff !important;
+}
+
+/* Hover effect */
+html[data-theme="dark"] a.btn:hover,
+html[data-theme="dark"] button.btn:hover,
+html[data-theme="dark"] .btn-primary:hover {
+    background-color: #1d4ed8 !important;
+    color: #ffffff !important;
+}
